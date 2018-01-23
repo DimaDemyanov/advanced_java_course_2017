@@ -55,7 +55,7 @@ class ApiClient implements Closeable {
 
     <REQ extends Request, RESP> RESP post(REQ req, Class<RESP> clazz) throws IOException {
         String queryString = getQueryString(req);
-        log.info("Sending POST to [{}] wih following data [{}]", queryString, req.getPayload());
+        log.info("Sending POST to [{}] with following data [{}]", queryString, req.getPayload());
         HttpPost post = new HttpPost(queryString);
         post.setEntity(new ByteArrayEntity(MAPPER.writeValueAsBytes(req.getPayload()), ContentType.APPLICATION_JSON));
         return method(clazz, post);

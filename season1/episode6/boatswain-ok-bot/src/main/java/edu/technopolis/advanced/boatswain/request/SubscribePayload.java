@@ -9,7 +9,7 @@ public class SubscribePayload implements RequestPayload {
 
     public SubscribePayload(String url, String filter) {
         this.url = url;
-        this.filter = filter;
+        this.filter = "";//filter;
     }
 
     public String getUrl() {

@@ -26,7 +26,8 @@ class BotServer {
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     BotServer(String endpoint, Function<MessageNotification, Boolean> sender) throws IOException {
-        InetSocketAddress addr = new InetSocketAddress(InetAddress.getByName("0.0.0.0"), 8080);
+        InetSocketAddress addr = new InetSocketAddress(/*InetAddress.getByName("0.0.0.0"),*/ 8080);
+        log.info(InetAddress.getByName("0.0.0.0").getHostAddress());
         httpServer = HttpServer.create(addr, 0);
         httpServer.createContext(endpoint, exchange -> {
             MessageNotification notif;
