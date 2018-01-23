@@ -2,6 +2,7 @@
 ### Gradle template
 .gradle
 /build/
+.idea/
 *.iml
 *.ipr
 *.iws
