@@ -29,6 +29,7 @@ public class BoatswainBot {
 
     public static void main(String[] args) {
         Properties props = new Properties();
+        System.out.println("Helllo!!!");
       //  props.setProperty("ok.api.access_token", "tkn1UVxhqXQaeGsOGZh4YP7QcIqyG2mxHMMNlQnSJMd1N2NuFdGuAUB787WURqg4GQlGa:CBAJMDDMEBABABABA");
         log.info("Reading application properties...");
         try {

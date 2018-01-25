@@ -22,6 +22,7 @@ repositories {
 }
 
 
+
 buildscript {
     repositories {
         //this plugin will be pulled from jcenter
@@ -78,3 +79,19 @@ sourceCompatibility = 1.8
 // Define the main class for the application
 mainClassName = 'edu.technopolis.advanced.boatswain.BoatswainBot'
 
+task stage {
+  dependsOn installDist
+}
+
+
+jar {
+    doFirst {
+        from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+    }
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'edu.technopolis.advanced.boatswain.BoatswainBot'
+        )
+    }
+}
